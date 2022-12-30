@@ -8,7 +8,7 @@ from tempfile import NamedTemporaryFile
 import logging
 import datetime
 
-logging.basicConfig(filename="logs.log",
+logging.basicConfig(filename="/home/ubuntu/rss_collector/logs.log",
                     format='%(asctime)s %(message)s',
                     filemode='w')
 
