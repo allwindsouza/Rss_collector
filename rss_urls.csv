@@ -1,21 +1,22 @@
-1, https://amagi-provisioner.0pb.org/rss/channels/id/ABiAj6xLz0IAZlr4@97:4017?apikey=262d3090-9ba0-44d0-81e4-3a70a01327f1 , 1
-2, http://feeds.cnevids.com/partner/amagi/bonappetit.mrss, 1
-3, http://feeds.cnevids.com/partner/amagi/epicurious.mrss, 1
-4, https://www.etonline.com/partners/video/cwdailynews.xml, 1
-5, https://mollusk.apis.ign.com/rss/amagi?appKey=4fcda8ed-ee88-4b4d-8bb1-85975d6fc553, 1
-6, https://feed.bluevo.com/BluCloud/JUNO/mrss/?id=P8EB9B71C697F499483B495D9D55ABC2B0958915AE8F94ED0BD1, 1
-7, https://feed.bluevo.com/BluCloud/JUNO/mrss/?id=P8EB9B71C697F499483B495D9D55ABC2B0958915AE8F94ED0BD1, 1
-8, http://18.204.172.241/amagi-feed/, 1
-9, https://www.popsugar.com/api/partners?partner=amagi&sites=fitsugar, 1
-10, https://video-2.hatchfarmstudios.com/feeds/ac-redbox-e020d99b.xml, 1
-11, https://ovp-vod-amagi-mrssfeeds-886239521314.s3.amazonaws.com/07fccd98-e917-4ffe-bd5b-d3c2000eaa47/mrssfeed.xml, 1
-12, https://ovp-vod-amagi-mrssfeeds-886239521314.s3.amazonaws.com/a6b51ef2-a7a7-44da-b870-c2d3910b10f2/mrssfeed.xml, 1
-13, https://sensical-admin-production.herokuapp.com/api/feed/2-4, 1
-14, http://tm-feed2-prod.tastemade.com.s3.amazonaws.com/amagi/amagi.xml, 1
-15, http://tm-feed2-prod.tastemade.com.s3.amazonaws.com/amagi/amagi-pt.xml, 1
-16, https://api.watch4.com/mrss?id=24&token=7284b369399b182396cdf2ad4bd275e7, 1
-17, https://api.watch4.com/mrss?id=218&token=7284b369399b182396cdf2ad4bd275e7c, 1
-18, https://api.watch4.com/mrss?id=153&token=7284b369399b182396cdf2ad4bd275e7, 1
-19, https://api.watch4.com/mrss?id=217&token=7284b369399b182396cdf2ad4bd275e7, 1
-20, https://ovp-vod-amagi-mrssfeeds-886239521314.s3.amazonaws.com/4aa12bb3-7ddf-4261-8e89-80761c22289b/mrssfeed.xml, 1
-21, https://pac-12.com/fd22ffeeaa13815573bc832658e939f4, 1
+1, https://amagi-provisioner.0pb.org/rss/channels/id/ABiAj6xLz0IAZlr4@97:4017?apikey=262d3090-9ba0-44d0-81e4-3a70a01327f1 ,cceedafdcffc0fa005d9d1e088b4>
+2, http://feeds.cnevids.com/partner/amagi/bonappetit.mrss,033486b6e0a10813cf341428b4ed6083
+3, http://feeds.cnevids.com/partner/amagi/epicurious.mrss,f54ae20b4608f9f149c69753c74b5672
+4, https://www.etonline.com/partners/video/cwdailynews.xml,2cca52bf5e6300f32be91fba8d461da6
+5, https://mollusk.apis.ign.com/rss/amagi?appKey=4fcda8ed-ee88-4b4d-8bb1-85975d6fc553,dadac02b94adc422d44843f5e18aecbe
+6, https://feed.bluevo.com/BluCloud/JUNO/mrss/?id=P8EB9B71C697F499483B495D9D55ABC2B0958915AE8F94ED0BD1,3e36f9edee807d41f5dc080a2fd3e8f7
+7, https://feed.bluevo.com/BluCloud/JUNO/mrss/?id=P8EB9B71C697F499483B495D9D55ABC2B0958915AE8F94ED0BD1,2575f8915366a11520fd5ef23841320c
+8, http://18.204.172.241/amagi-feed/,7df0915e2d6a5ceffdfc2adeb76937a7
+9, https://www.popsugar.com/api/partners?partner=amagi&sites=fitsugar,d305aa951e96b939818c63ed2e309d6c
+10, https://video-2.hatchfarmstudios.com/feeds/ac-redbox-e020d99b.xml,f1a0a2f4347781146b1c3e25e26cf867
+11, https://ovp-vod-amagi-mrssfeeds-886239521314.s3.amazonaws.com/07fccd98-e917-4ffe-bd5b-d3c2000eaa47/mrssfeed.xml,0c0f8bf3947c4d2179836e37fa30cd52
+12, https://ovp-vod-amagi-mrssfeeds-886239521314.s3.amazonaws.com/a6b51ef2-a7a7-44da-b870-c2d3910b10f2/mrssfeed.xml,7c6400712fe5d0c76f8f8ca8f205f558
+13, https://sensical-admin-production.herokuapp.com/api/feed/2-4,51bac86e4997da7f6136eb1903e12c32
+14, http://tm-feed2-prod.tastemade.com.s3.amazonaws.com/amagi/amagi.xml,1d632d70c33673392a43400dc5981ba0
+15, http://tm-feed2-prod.tastemade.com.s3.amazonaws.com/amagi/amagi-pt.xml,21e20277531e8ea74119b581fafa6a0d
+16, https://api.watch4.com/mrss?id=24&token=7284b369399b182396cdf2ad4bd275e7,aaf7d44eab9bdf5eb4f7566fca583444
+17, https://api.watch4.com/mrss?id=218&token=7284b369399b182396cdf2ad4bd275e7c,c0caadebff066afe906f4237f670784c
+18, https://api.watch4.com/mrss?id=153&token=7284b369399b182396cdf2ad4bd275e7,cb4c712dfcedd15791bcbb7b87ba22f0
+19, https://api.watch4.com/mrss?id=217&token=7284b369399b182396cdf2ad4bd275e7,147b9ef4919a4366b91e36a1b3118cc2
+20, https://ovp-vod-amagi-mrssfeeds-886239521314.s3.amazonaws.com/4aa12bb3-7ddf-4261-8e89-80761c22289b/mrssfeed.xml,6a2fbaeb0b15f4eaf2252c98f25f0a89
+21, https://pac-12.com/fd22ffeeaa13815573bc832658e939f4,cad91649fd904bc22abbf3d177ffe987
+

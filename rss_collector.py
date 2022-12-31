@@ -23,13 +23,14 @@ s3 = boto3.resource('s3', aws_access_key_id="AKIA2U6JNODTAU2JNGFN",
 bucket = 'amagirssfiles'
 
 logger.info(f"Starting to Iterate over the rss URLS at {datetime.datetime.now()}")
+sys.stdout.write(f"Starting to Iterate over the rss URLS at {datetime.datetime.now()}")
 
 filename = 'rss_urls.csv'
-temp_file = NamedTemporaryFile(mode='w', delete=False)
 
 fields = ['rss_id', 'rss_url', 'md5_hash']
 
 while True:
+    temp_file = NamedTemporaryFile(mode='w', delete=False)
     with open(filename, 'r') as csvfile, temp_file:
         reader = csv.DictReader(csvfile, fieldnames=fields)
         writer = csv.DictWriter(temp_file, fieldnames=fields)
@@ -74,3 +75,6 @@ while True:
     time.sleep(600) # Sleep for 10 mins
 
 # sudo ssh - i Rss_collector.pem ubuntu@18.183.76.127
+# nohup python rss_collector.py &
+# ps -ef | grep python
+# kill <pid>
