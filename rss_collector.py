@@ -8,26 +8,28 @@ from tempfile import NamedTemporaryFile
 import logging
 import datetime
 import boto3
-
+import creds
 
 logging.basicConfig(
-                    filename="/home/ubuntu/rss_collector/logs.log",
-                    # filename='logs.log',
+                    # filename="/home/ubuntu/rss_collector/logs.log",
+                    filename='logs.log',
                     format='%(asctime)s %(message)s',
                     filemode='w')
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
-s3 = boto3.resource('s3', aws_access_key_id="AKIA2U6JNODTAU2JNGFN",
-                    aws_secret_access_key="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")
+
+s3 = boto3.resource('s3', aws_access_key_id=creds.aws_access_key_id,
+                    aws_secret_access_key=creds.aws_secret_access_key)
+
 bucket = 'amagirssfiles'
 
-logger.info(f"Starting to Iterate over the rss URLS at {datetime.datetime.now()}")
-sys.stdout.write(f"Starting to Iterate over the rss URLS at {datetime.datetime.now()}")
+logger.info(f"Starting to Iterate over the rss URLS at {datetime.datetime.now()}. \n")
+sys.stdout.write(f"Starting to Iterate over the rss URLS at {datetime.datetime.now()}. \n")
 
-filename = 'rss_urls.csv'
+filename = 'temp_rss_feed.csv'
 
-fields = ['rss_id', 'rss_url', 'md5_hash']
+fields = ['rss_id', 'rss_url', 'md5_hash', 'last_changed', 'change_interval']
 
 while True:
     temp_file = NamedTemporaryFile(mode='w', delete=False)
@@ -44,16 +46,30 @@ while True:
                 data = url_request.text
                 hash = hashlib.md5(data.encode('utf-8')).hexdigest()
 
+                last_changed = row['last_changed']
+                if last_changed != "null":
+                    last_changed = datetime.datetime.strptime(row['last_changed'], '%Y-%m-%d %H:%M:%S.%f')
+
+
                 if hash == row['md5_hash']:
                     sys.stdout.write("\t Same hash as previous iteration: {}. \n".format(hash))
                     logger.info("\t Same hash as previous iteration: {}. \n".format(hash))
-                    new_row = {'rss_id': row['rss_id'], 'rss_url': row['rss_url'], 'md5_hash': row['md5_hash']}
+                    new_row = {'rss_id': row['rss_id'], 'rss_url': row['rss_url'],
+                               'md5_hash': row['md5_hash'], 'last_changed': row['last_changed'],
+                               'change_interval': row['change_interval']}
 
                 else:
                     sys.stdout.write("\t Changing hash from {} to {}. \n".format(row['md5_hash'], hash))
                     logger.info("\t Changing hash from {} to {}. \n".format(row['md5_hash'], hash))
 
-                    new_row = {'rss_id': row['rss_id'], 'rss_url': row['rss_url'], 'md5_hash': hash}
+                    now = datetime.datetime.now()
+                    if last_changed == "null":
+                        last_changed = now
+                    diff_time = now - last_changed
+                    change_interval = str(diff_time).split(".")[0]
+
+                    new_row = {'rss_id': row['rss_id'], 'rss_url': row['rss_url'], 'md5_hash': hash,
+                               'last_changed': str(now), 'change_interval': change_interval}
                     file_name = row['rss_id'] + '_:_' + str(time.time())
 
                     temp_file_name = "temp_file.txt"
