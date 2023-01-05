@@ -11,18 +11,19 @@ import boto3
 import creds
 
 logging.basicConfig(
-                    # filename="/home/ubuntu/rss_collector/logs.log",
                     filename='logs.log',
                     format='%(asctime)s %(message)s',
-                    filemode='w')
+                    filemode='w'
+                    )
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
-s3 = boto3.resource('s3', aws_access_key_id=creds.aws_access_key_id,
-                    aws_secret_access_key=creds.aws_secret_access_key)
+s3 = boto3.resource('s3', aws_access_key_id=creds.AWS_ACCESS_KEY_ID,
+                    aws_secret_access_key=creds.AWS_SECRET_ACCESS_KEY,
+                    aws_session_token=creds.AWS_SESSIONS_TOKEN)
 
-bucket = 'amagirssfiles'
+bucket = 'pub-rss-feed-collection'
 
 logger.info(f"Starting to Iterate over the rss URLS at {datetime.datetime.now()}. \n")
 sys.stdout.write(f"Starting to Iterate over the rss URLS at {datetime.datetime.now()}. \n")
@@ -91,6 +92,7 @@ while True:
     time.sleep(600) # Sleep for 10 mins
 
 # sudo ssh - i Rss_collector.pem ubuntu@18.183.76.127
+# sudo ssh 65.2.11.21 -l ubuntu -i allwin-key-rss-feed.pem
 # nohup python rss_collector.py &
 # ps -ef | grep python
 # kill <pid>

@@ -1,0 +1,40 @@
+2023-01-05 18:34:05,325 Starting to Iterate over the rss URLS at 2023-01-05 18:34:05.325769. 
+
+2023-01-05 18:34:05,326 Processing Rss_ID: 1 : 
+
+2023-01-05 18:34:06,417 	 Changing hash from 0 to 62728e89bfd18c164e880733f50a042f. 
+
+2023-01-05 18:34:07,579 	 Completed Processing Rss_ID: 1 . 
+
+2023-01-05 18:34:07,580 Processing Rss_ID: 2 : 
+
+2023-01-05 18:34:09,842 	 Changing hash from 0 to 923a2b74df12e87e77ba652d9146ebd1. 
+
+2023-01-05 18:34:10,968 	 Completed Processing Rss_ID: 2 . 
+
+2023-01-05 18:34:10,968 Processing Rss_ID: 3 : 
+
+2023-01-05 18:34:17,061 	 Changing hash from 0 to c2ce1e74366f84cc6cc038daf23995a5. 
+
+2023-01-05 18:34:21,198 	 Completed Processing Rss_ID: 3 . 
+
+2023-01-05 18:34:21,198 Processing Rss_ID: 4 : 
+
+2023-01-05 18:34:25,230 	 Changing hash from 0 to e7cbec7d78cfbe59674a37abe14b7989. 
+
+2023-01-05 18:34:26,864 	 Completed Processing Rss_ID: 4 . 
+
+2023-01-05 18:34:26,864 Processing Rss_ID: 5 : 
+
+2023-01-05 18:34:28,340 	 Changing hash from 0 to 8f1ac3e6a99b58946ad30e06d4a21635. 
+
+2023-01-05 18:34:28,711 	 Completed Processing Rss_ID: 5 . 
+
+2023-01-05 18:34:28,711 Processing Rss_ID: 6 : 
+
+2023-01-05 18:34:29,791 	 Changing hash from 0 to 6ce0ecb211c8c1c82a2e61dace9bc813. 
+
+2023-01-05 18:34:29,903 Skipping for Rss_ID: 6 : 
+
+2023-01-05 18:34:29,904 Processing Rss_ID: 7 : 
+

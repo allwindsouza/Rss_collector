@@ -1,24 +1,2 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<rss version="2.0" xml:base="https://www.etonline.com" xmlns:dc="http://purl.org/dc/elements/1.1/">
-  <channel>
-    <atom:link href="https://www.etonline.com" rel="self" type="application/rss+xml"/>
-    <title><![CDATA[CW Seed Daily News Video Feed]]></title>
-    <link>https://www.etonline.com</link>
-    <description><![CDATA[CW Seed Daily News Video Feed]]></description>
-    <language>en</language>
-    <copyright>Copyright (c) 2023 CBS Studios Inc. All Rights Reserved.</copyright>
-    <pubDate>Tue, 03 Jan 2023 23:01:38 -0800</pubDate>
-    <lastBuildDate>Tue, 03 Jan 2023 23:01:38 -0800</lastBuildDate>
-    <generator>CBS Studios, Inc</generator>
-    <docs>http://www.rssboard.org/media-rss</docs>
-    <image>
-      <title><![CDATA[CW Seed Daily News Video Feed]]></title>
-      <url>https://www.etonline.com/themes/custom/et/logo.png</url>
-      <link>https://www.etonline.com</link>
-      <width>152</width>
-      <height>152</height>
-    </image>
-        
-    
-    </channel>
-</rss>
+<?xml version="1.0" encoding="UTF-8"?>
+<message>This playlist is not active or it does not exist</message>
