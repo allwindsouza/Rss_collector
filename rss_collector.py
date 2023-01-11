@@ -79,7 +79,7 @@ while True:
                         sys.stdout.write("\t Writing to file: {}. \n".format(file_name))
 
                     print("Uploading to bucket")
-                    # s3.Bucket(bucket).upload_file(temp_file_name, 'Rss_files/' + file_name)
+                    s3.Bucket(bucket).upload_file(temp_file_name, 'Rss_files/' + file_name)
 
                     sys.stdout.write("\t Completed Processing Rss_ID: {} . \n".format(row['rss_id']))
                     logger.info("\t Completed Processing Rss_ID: {} . \n".format(row['rss_id']))
