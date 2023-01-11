@@ -33,7 +33,6 @@ filename = 'temp_rss_feed.csv'
 fields = ['rss_id', 'rss_url', 'md5_hash', 'last_changed', 'change_interval']
 
 while True:
-    print("starting")
     temp_file = NamedTemporaryFile(mode='w', delete=False)
     with open(filename, 'r') as csvfile, temp_file:
         reader = csv.DictReader(csvfile, fieldnames=fields)
@@ -72,14 +71,15 @@ while True:
 
                     new_row = {'rss_id': row['rss_id'], 'rss_url': row['rss_url'], 'md5_hash': hash,
                                'last_changed': str(now), 'change_interval': change_interval}
-                    file_name = row['rss_id'] + '_:_' + str(time.time())
+                    file_name = row['rss_id'] + '_' + str(time.time())
 
                     temp_file_name = "temp_file.txt"
                     with open(temp_file_name, 'w') as new_file:
                         new_file.write(data)
                         sys.stdout.write("\t Writing to file: {}. \n".format(file_name))
 
-                    s3.Bucket(bucket).upload_file(temp_file_name, 'Rss_files/' + file_name)
+                    print("Uploading to bucket")
+                    # s3.Bucket(bucket).upload_file(temp_file_name, 'Rss_files/' + file_name)
 
                     sys.stdout.write("\t Completed Processing Rss_ID: {} . \n".format(row['rss_id']))
                     logger.info("\t Completed Processing Rss_ID: {} . \n".format(row['rss_id']))
@@ -90,7 +90,8 @@ while True:
                 logger.info("Skipping for Rss_ID: {} : \n".format(row['rss_id']))
 
     shutil.move(temp_file.name, filename)
-    time.sleep(600) # Sleep for 10 mins
+    sys.stdout.write("Completed Going through all Rss feeds")
+    time.sleep(300) # Sleep for 5 mins
 
 # sudo ssh - i Rss_collector.pem ubuntu@18.183.76.127
 # sudo ssh 65.2.11.21 -l ubuntu -i allwin-key-rss-feed.pem
