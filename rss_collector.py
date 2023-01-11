@@ -19,9 +19,9 @@ logging.basicConfig(
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
-s3 = boto3.resource('s3', aws_access_key_id=creds.AWS_ACCESS_KEY_ID,
-                    aws_secret_access_key=creds.AWS_SECRET_ACCESS_KEY,
-                    aws_session_token=creds.AWS_SESSIONS_TOKEN)
+s3 = boto3.resource('s3', aws_access_key_id=creds.aws_access_key_id,
+                    aws_secret_access_key=creds.aws_secret_access_key,
+                    aws_session_token=creds.aws_session_token)
 
 bucket = 'pub-rss-feed-collection'
 
@@ -33,6 +33,7 @@ filename = 'temp_rss_feed.csv'
 fields = ['rss_id', 'rss_url', 'md5_hash', 'last_changed', 'change_interval']
 
 while True:
+    print("starting")
     temp_file = NamedTemporaryFile(mode='w', delete=False)
     with open(filename, 'r') as csvfile, temp_file:
         reader = csv.DictReader(csvfile, fieldnames=fields)
