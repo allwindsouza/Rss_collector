@@ -60,7 +60,7 @@ while True:
                     logger.info("\t Same hash as previous iteration: {}. \n".format(file_hash))
                     new_row = {'rss_id': row['rss_id'], 'rss_url': row['rss_url'],
                                'md5_hash': row['md5_hash'], 'last_changed': row['last_changed'],
-                               'change_interval': row['change_interval']}
+                               'change_interval': row['change_interval'], 'epoch_counter': row['epoch_counter']}
 
                 else:
                     epoch = int(row['epoch_counter']) + 1
@@ -78,7 +78,7 @@ while True:
 
                     folder_name = hashlib.sha256(row['rss_url'].encode()).hexdigest()[:5] # Last 5 Chars of url's Sha256
                     file_name = f"epoch_{epoch}.xml"
-                    write_path = 'Rss_files_v2/' + f"{folder_name}/{file_name}"
+                    write_path = 'Rss_files_v2_test/' + f"{folder_name}/{file_name}"
                     temp_file_name = "temp_file.txt"
 
                     with open(temp_file_name, 'w') as new_file:
@@ -102,7 +102,7 @@ while True:
 
     shutil.move(temp_file.name, filename)
     sys.stdout.write("Completed Going through all Rss feeds")
-    time.sleep(300) # Sleep for 5 mins
+    time.sleep(20) # Sleep for 5 mins
 
 # sudo ssh - i Rss_collector.pem ubuntu@18.183.76.127
 # sudo ssh 65.2.11.21 -l ubuntu -i allwin-key-rss-feed.pem
