@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<message>This playlist is not active or it does not exist</message>

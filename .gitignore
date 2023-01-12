@@ -1,3 +1,6 @@
-.temp_rss_feed.csv
-scratch
+temp_rss_feed.csv
+scratch.py
 creds.py
+config.ini
+temp_file.txt
+logs.log
