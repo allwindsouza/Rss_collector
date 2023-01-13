@@ -3,6 +3,7 @@
 3,http://feeds.cnevids.com/partner/amagi/bonappetit.mrss,0,null,null,0
 4,https://www.etonline.com/partners/video/cwdailynews.xml,0,null,null,0
 5,https://rss.zype.com/xumo/5ec56b8ecb6a4900015f2d27?app_key=t6bAdVijanfK7oT6xUdsEM6c6-6-C99MBDv_bjMqBk5HSQQePGR5e6JsIu6V1OoN,0,null,null,0
+6,https://ovp-vod-amagi-mrssfeeds-886239521314.s3.amazonaws.com/07fccd98-e917-4ffe-bd5b-d3c2000eaa47/mrssfeed.xml,0,null,null,0
 7,https://feed.bluevo.com/BluCloud/JUNO/mrss/?id=P8EB9B71C697F499483B495D9D55ABC2B0958915AE8F94ED0BD1,0,null,null,0
 8,http://18.204.172.241/amagi-feed/,0,null,null,0
 9,https://www.popsugar.com/api/partners?partner=amagi&sites=fitsugar,0,null,null,0
@@ -28,4 +29,3 @@
 29,http://feeds.cnevids.com/partner/amagi/epicurious.mrss,0,null,null,0
 30,https://amagi-provisioner.0pb.org/rss/channels/id/ABgwdyi3P4oAM1HP@97:4017?apikey=262d3090-9ba0-44d0-81e4-3a70a01327f1,0,null,null,0
 31,http://tm-feed2-prod.tastemade.com.s3.amazonaws.com/amagi/amagi-es.xml,0,null,null,0
-32,https://ovp-vod-amagi-mrssfeeds-886239521314.s3.amazonaws.com/07fccd98-e917-4ffe-bd5b-d3c2000eaa47/mrssfeed.xml,0,null,null,0

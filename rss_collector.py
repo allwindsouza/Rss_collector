@@ -78,7 +78,7 @@ while True:
                                'last_changed': str(now), 'change_interval': change_interval, 'epoch_counter': epoch }
 
                     folder_name = hashlib.sha256(row['rss_url'].encode()).hexdigest()[:5] # Last 5 Chars of url's Sha256
-                    file_name = f"epoch_{epoch}.xml"
+                    file_name = f"{str(time.time())}.xml"
                     write_path = 'Rss_files_v2/' + f"{folder_name}/{file_name}"
                     temp_file_name = "temp_file.txt"
 
