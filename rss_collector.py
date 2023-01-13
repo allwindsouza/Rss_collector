@@ -26,7 +26,7 @@ s3 = boto3.resource('s3', aws_access_key_id=config['503037447114_aws-compass-use
                     aws_secret_access_key=config['503037447114_aws-compass-user1']['aws_secret_access_key'],
                     aws_session_token=config['503037447114_aws-compass-user1']['aws_session_token'])
 
-bucket = 'pub-rss-feed-collection'
+bucket = 'pub-rss-feed-store'
 
 filename = 'temp_rss_feed.csv'
 
