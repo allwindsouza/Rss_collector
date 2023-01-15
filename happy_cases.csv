@@ -1,0 +1,16 @@
+2,https://amagi-provisioner.0pb.org/rss/channels/id/ABiAj6xLz0IAZlr4@97:4017?apikey=262d3090-9ba0-44d0-81e4-3a70a01327f1,Structure_D_Transformer
+3,http://feeds.cnevids.com/partner/amagi/bonappetit.mrss,Structure_B_Transformer
+6,https://ovp-vod-amagi-mrssfeeds-886239521314.s3.amazonaws.com/07fccd98-e917-4ffe-bd5b-d3c2000eaa47/mrssfeed.xml,Structure_A_Transformer
+11,https://ovp-vod-amagi-mrssfeeds-886239521314.s3.amazonaws.com/a6b51ef2-a7a7-44da-b870-c2d3910b10f2/mrssfeed.xml,Structure_A_Transformer
+12,https://sensical-admin-production.herokuapp.com/api/feed/2-4,Structure_A_Transformer
+13,http://tm-feed2-prod.tastemade.com.s3.amazonaws.com/amagi/amagi.xml,Structure_A_Transformer
+14,http://tm-feed2-prod.tastemade.com.s3.amazonaws.com/amagi/amagi-pt.xml,Structure_A_Transformer
+19,https://ovp-vod-amagi-mrssfeeds-886239521314.s3.amazonaws.com/4aa12bb3-7ddf-4261-8e89-80761c22289b/mrssfeed.xml,Structure_A_Transformer
+24,https://cdn.jwplayer.com/v2/playlists/aP6noDiH?format=mrss,Structure_C_Transformer
+25,https://feed.theplatform.com/f/kYEXFC/X30aLQWplOWm,Structure_B_Transformer
+26,https://ovp-vod-amagi-mrssfeeds-886239521314.s3.amazonaws.com/a5242359-31bf-47e4-bc77-78c10b002d33/mrssfeed.xml,Structure_A_Transformer
+27,https://amagi-provisioner.0pb.org/rss/channels/id/ABducTvMHh0AOTbC@97:4017?apikey=262d3090-9ba0-44d0-81e4-3a70a01327f1,Structure_D_Transformer
+28,https://syndication.crackle.com/feeds/linear/offnetworklinear_crackle_120.mrss?token=,ISSUE: 'str' object has no attribute 'text'
+29,http://feeds.cnevids.com/partner/amagi/epicurious.mrss,Structure_B_Transformer
+30,https://amagi-provisioner.0pb.org/rss/channels/id/ABgwdyi3P4oAM1HP@97:4017?apikey=262d3090-9ba0-44d0-81e4-3a70a01327f1,Structure_D_Transformer
+31,http://tm-feed2-prod.tastemade.com.s3.amazonaws.com/amagi/amagi-es.xml,Structure_A_Transformer
