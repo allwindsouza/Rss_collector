@@ -88,7 +88,7 @@ while True:
                         sys.stdout.write("\t Writing to file: {}. \n".format(write_path))
 
                     # s3.Bucket(bucket).upload_file(temp_file_name, write_path)
-                    s3.upload_file(Filename=temp_file_name, Bucket=bucket, Key='write_path')
+                    s3.upload_file(Filename=temp_file_name, Bucket=bucket, Key=write_path)
 
                     sys.stdout.write("\t Completed Processing Rss_ID: {} . \n".format(row['rss_id']))
                     logger.info("\t Completed Processing Rss_ID: {} . \n".format(row['rss_id']))
