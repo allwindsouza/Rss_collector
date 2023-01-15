@@ -9,10 +9,9 @@ import logging
 import datetime
 import boto3
 import hashlib
-import configparser
+from pytz import timezone
 
-config = configparser.ConfigParser()
-config.read('config.ini')
+
 
 logging.basicConfig(
                     filename='logs.log',
@@ -23,26 +22,21 @@ logging.basicConfig(
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
-# is_aws = True if os.environ.get("AWS_DEFAULT_REGION") else False
-# print(is_aws)
 
-s3 = boto3.resource('s3', aws_access_key_id=config['503037447114_aws-compass-user1']['aws_access_key_id'],
-                    aws_secret_access_key=config['503037447114_aws-compass-user1']['aws_secret_access_key'],
-                    aws_session_token=config['503037447114_aws-compass-user1']['aws_session_token'])
-
-# s3 = boto3.resource('s3')
+session = boto3.Session(profile_name="s3-access-role")
+s3 = session.client("s3")
 
 bucket = 'pub-rss-feed-store'
-# s3.Bucket(bucket).upload_file('rss_urls.csv', '/test_delete.txt')
 
 filename = 'temp_rss_feed.csv'
 
 fields = ['rss_id', 'rss_url', 'md5_hash', 'last_changed', 'change_interval', 'epoch_counter']
 
 while True:
+    ind_time = datetime.datetime.now(timezone("Asia/Kolkata")).strftime('%Y-%m-%d %H:%M:%S.%f')
 
-    logger.info(f"Starting to Iterate over the rss URLS at {datetime.datetime.now()}. \n")
-    sys.stdout.write(f"Starting to Iterate over the rss URLS at {datetime.datetime.now()}. \n")
+    logger.info(f"Starting to Iterate over the rss URLS at {ind_time}. \n")
+    sys.stdout.write(f"Starting to Iterate over the rss URLS at {ind_time}. \n")
 
     temp_file = NamedTemporaryFile(mode='w', delete=False)
     with open(filename, 'r') as csvfile, temp_file:
@@ -93,7 +87,8 @@ while True:
                         new_file.write(data)
                         sys.stdout.write("\t Writing to file: {}. \n".format(write_path))
 
-                    s3.Bucket(bucket).upload_file(temp_file_name, write_path)
+                    # s3.Bucket(bucket).upload_file(temp_file_name, write_path)
+                    s3.upload_file(Filename=temp_file_name, Bucket=bucket, Key='write_path')
 
                     sys.stdout.write("\t Completed Processing Rss_ID: {} . \n".format(row['rss_id']))
                     logger.info("\t Completed Processing Rss_ID: {} . \n".format(row['rss_id']))
