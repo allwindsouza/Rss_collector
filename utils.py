@@ -3,7 +3,7 @@ from datetime import datetime
 import pytz
 
 session = boto3.Session(profile_name="s3-access-role")
-s3 = session.client("s3")
+s3 = session.resource("s3")
 
 # import creds
 #
