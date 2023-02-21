@@ -25,23 +25,26 @@ def compare_xml_files(data_1, data_2):
     """
     Compare two XML files, ignoring any differences in date or time-related fields.
     """
-    # Load XML files into ElementTree objects
-    tree1 = ET.ElementTree(ET.fromstring(data_1))
-    tree2 = ET.ElementTree(ET.fromstring(data_2))
+    try:
+        # Load XML files into ElementTree objects
+        tree1 = ET.ElementTree(ET.fromstring(data_1))
+        tree2 = ET.ElementTree(ET.fromstring(data_2))
 
 
-    # Get root elements of both trees
-    root1 = tree1.getroot()
-    root2 = tree2.getroot()
+        # Get root elements of both trees
+        root1 = tree1.getroot()
+        root2 = tree2.getroot()
 
-    # Check for differences in non-date and non-time-related fields
-    for elem1, elem2 in zip(root1.iter(), root2.iter()):
-        if not elements_equal(elem1, elem2):
-            if not re.search(r"(date|time)", elem1.tag):
-                for key in elem1.attrib:
-                    if not re.search(r"(date|time)", key):
-                        if elem1.attrib[key] != elem2.attrib.get(key):
-                            return False
+        # Check for differences in non-date and non-time-related fields
+        for elem1, elem2 in zip(root1.iter(), root2.iter()):
+            if not elements_equal(elem1, elem2):
+                if not re.search(r"(date|time)", elem1.tag):
+                    for key in elem1.attrib:
+                        if not re.search(r"(date|time)", key):
+                            if elem1.attrib[key] != elem2.attrib.get(key):
+                                return False
+    except Exception as e:
+        return False
     return True
 
 def download_and_write(url, path):
