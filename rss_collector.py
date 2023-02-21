@@ -51,9 +51,6 @@ while True:
         writer = csv.DictWriter(temp_file, fieldnames=fields)
 
         for row in reader:
-            if row['rss_id'] in skip:
-                sys.stdout.write("fSkipping {row['rss_id']}, specified in skip.")
-                continue
             sys.stdout.write("Processing Rss_ID: {} : \n".format(row['rss_id']))
             logger.info("Processing Rss_ID: {} : \n".format(row['rss_id']))
 
@@ -75,15 +72,17 @@ while True:
 
                 else:
                     # Doing further checks:
-                    folder_name = hashlib.sha256(row['rss_url'].encode()).hexdigest()[:5]  # Last 5 Chars of url's Sha256
-                    folder = 'Rss_files_v2/' + f"{folder_name}"
-                    sys.stdout.write(f"\t Got name of last file in folder: {folder} \n")
-                    old_data = get_last_modified_file_data(bucket_name=bucket, folder_name=folder)
+                    if not row['rss_id'] in skip:
+                        folder_name = hashlib.sha256(row['rss_url'].encode()).hexdigest()[:5]  # Last 5 Chars of url's Sha256
+                        folder = 'Rss_files_v2/' + f"{folder_name}"
+                        sys.stdout.write(f"\t Got name of last file in folder: {folder} \n")
+                        old_data = get_last_modified_file_data(bucket_name=bucket, folder_name=folder)
 
-                    sys.stdout.write(f"\t Received old data. \n")
-                    if compare_xml_files(old_data, data):
-                        sys.stdout.write("\t Same as old xml files, only a few date/time fields have changed. \n")
-                        pass
+                        sys.stdout.write(f"\t Received old data. \n")
+                        if compare_xml_files(old_data, data):
+                            sys.stdout.write("\t Same as old xml files, only a few date/time fields have changed. \n")
+                            pass
+
                     else:
                         epoch = int(row['epoch_counter']) + 1
                         sys.stdout.write("\t Changing hash from {} to {}. \n".format(row['md5_hash'], file_hash))
