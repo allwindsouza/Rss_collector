@@ -1,3 +1,5 @@
+import sys
+
 import boto3
 from datetime import datetime
 import pytz
@@ -28,7 +30,7 @@ def get_last_modified_file_data(bucket_name, folder_name):
     if last_modified_file is not None:
         obj = s3.Object(bucket_name, last_modified_file)
         data = obj.get()['Body'].read().decode('utf-8')
-        print("Read data from file '{0}' in folder '{1}'".format(last_modified_file, folder_name))
+        sys.stdout.write("\t Read data from file '{0}' in folder '{1}'".format(last_modified_file, folder_name))
         return data
 
     else:

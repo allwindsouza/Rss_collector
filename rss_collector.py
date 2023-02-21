@@ -35,6 +35,8 @@ bucket = 'pub-rss-feed-store'
 
 filename = 'temp_rss_feed.csv'
 
+skip = ['137']
+
 fields = ['rss_id', 'rss_url', 'md5_hash', 'last_changed', 'change_interval', 'epoch_counter']
 
 while True:
@@ -49,6 +51,9 @@ while True:
         writer = csv.DictWriter(temp_file, fieldnames=fields)
 
         for row in reader:
+            if row['rss_id'] in skip:
+                sys.stdout.write("fSkipping {row['rss_id']}, specified in skip.")
+                continue
             sys.stdout.write("Processing Rss_ID: {} : \n".format(row['rss_id']))
             logger.info("Processing Rss_ID: {} : \n".format(row['rss_id']))
 
