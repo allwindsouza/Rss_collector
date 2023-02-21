@@ -82,39 +82,46 @@ while True:
                         if compare_xml_files(old_data, data):
                             sys.stdout.write("\t Same as old xml files, only a few date/time fields have changed. \n")
 
+                            new_row = {'rss_id': row['rss_id'], 'rss_url': row['rss_url'],
+                                       'md5_hash': row['md5_hash'], 'last_changed': row['last_changed'],
+                                       'change_interval': row['change_interval'], 'epoch_counter': row['epoch_counter']}
+
+                        else:
+                            epoch = int(row['epoch_counter']) + 1
+                            sys.stdout.write("\t Changing hash from {} to {}. \n".format(row['md5_hash'], file_hash))
+                            logger.info("\t Changing hash from {} to {}. \n".format(row['md5_hash'], file_hash))
+
+                            now = datetime.datetime.now()
+                            if last_changed == "null":
+                                last_changed = now
+                            diff_time = now - last_changed
+                            change_interval = str(diff_time).split(".")[0]
+
+                            new_row = {'rss_id': row['rss_id'], 'rss_url': row['rss_url'], 'md5_hash': file_hash,
+                                       'last_changed': str(now), 'change_interval': change_interval, 'epoch_counter': epoch}
+
+                            folder_name = hashlib.sha256(row['rss_url'].encode()).hexdigest()[
+                                          :5]  # Last 5 Chars of url's Sha256
+                            file_name = f"{str(time.time())}.xml"
+                            write_path = 'Rss_files_v2/' + f"{folder_name}/{file_name}"
+                            temp_file_name = "temp_file.txt"
+
+                            with open(temp_file_name, 'w') as new_file:
+                                new_file.write(data)
+                                sys.stdout.write("\t Writing to file: {}. \n".format(write_path))
+
+                            # s3.Bucket(bucket).upload_file(temp_file_name, write_path)
+                            s3.upload_file(Filename=temp_file_name, Bucket=bucket, Key=write_path)
+
+                            sys.stdout.write("\t Completed Processing Rss_ID: {} . \n".format(row['rss_id']))
+                            logger.info("\t Completed Processing Rss_ID: {} . \n".format(row['rss_id']))
+
+                    else:
                         new_row = {'rss_id': row['rss_id'], 'rss_url': row['rss_url'],
                                    'md5_hash': row['md5_hash'], 'last_changed': row['last_changed'],
                                    'change_interval': row['change_interval'], 'epoch_counter': row['epoch_counter']}
 
-                    else:
-                        epoch = int(row['epoch_counter']) + 1
-                        sys.stdout.write("\t Changing hash from {} to {}. \n".format(row['md5_hash'], file_hash))
-                        logger.info("\t Changing hash from {} to {}. \n".format(row['md5_hash'], file_hash))
-
-                        now = datetime.datetime.now()
-                        if last_changed == "null":
-                            last_changed = now
-                        diff_time = now - last_changed
-                        change_interval = str(diff_time).split(".")[0]
-
-                        new_row = {'rss_id': row['rss_id'], 'rss_url': row['rss_url'], 'md5_hash': file_hash,
-                                   'last_changed': str(now), 'change_interval': change_interval, 'epoch_counter': epoch}
-
-                        folder_name = hashlib.sha256(row['rss_url'].encode()).hexdigest()[
-                                      :5]  # Last 5 Chars of url's Sha256
-                        file_name = f"{str(time.time())}.xml"
-                        write_path = 'Rss_files_v2/' + f"{folder_name}/{file_name}"
-                        temp_file_name = "temp_file.txt"
-
-                        with open(temp_file_name, 'w') as new_file:
-                            new_file.write(data)
-                            sys.stdout.write("\t Writing to file: {}. \n".format(write_path))
-
-                        # s3.Bucket(bucket).upload_file(temp_file_name, write_path)
-                        s3.upload_file(Filename=temp_file_name, Bucket=bucket, Key=write_path)
-
-                        sys.stdout.write("\t Completed Processing Rss_ID: {} . \n".format(row['rss_id']))
-                        logger.info("\t Completed Processing Rss_ID: {} . \n".format(row['rss_id']))
+                        sys.stdout.write("Skipping")
 
                 writer.writerow(new_row)
 
