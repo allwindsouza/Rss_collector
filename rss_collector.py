@@ -22,14 +22,14 @@ logging.basicConfig(
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
-session = boto3.Session(profile_name="s3-access-role")
-s3 = session.client("s3")
+# session = boto3.Session(profile_name="s3-access-role")
+# s3 = session.client("s3")
 
-# import creds
-#
-# s3 = boto3.resource('s3', aws_access_key_id=creds.AWS_ACCESS_KEY_ID,
-#                     aws_secret_access_key=creds.AWS_SECRET_ACCESS_KEY,
-#                     aws_session_token=creds.AWS_SESSION_TOKEN)
+import creds
+
+s3 = boto3.resource('s3', aws_access_key_id=creds.AWS_ACCESS_KEY_ID,
+                    aws_secret_access_key=creds.AWS_SECRET_ACCESS_KEY,
+                    aws_session_token=creds.AWS_SESSION_TOKEN)
 
 bucket = 'pub-rss-feed-store'
 
@@ -81,7 +81,10 @@ while True:
                         sys.stdout.write(f"\t Received old data. \n")
                         if compare_xml_files(old_data, data):
                             sys.stdout.write("\t Same as old xml files, only a few date/time fields have changed. \n")
-                            pass
+
+                        new_row = {'rss_id': row['rss_id'], 'rss_url': row['rss_url'],
+                                   'md5_hash': row['md5_hash'], 'last_changed': row['last_changed'],
+                                   'change_interval': row['change_interval'], 'epoch_counter': row['epoch_counter']}
 
                     else:
                         epoch = int(row['epoch_counter']) + 1
@@ -93,6 +96,9 @@ while True:
                             last_changed = now
                         diff_time = now - last_changed
                         change_interval = str(diff_time).split(".")[0]
+
+                        new_row = {'rss_id': row['rss_id'], 'rss_url': row['rss_url'], 'md5_hash': file_hash,
+                                   'last_changed': str(now), 'change_interval': change_interval, 'epoch_counter': epoch}
 
                         folder_name = hashlib.sha256(row['rss_url'].encode()).hexdigest()[
                                       :5]  # Last 5 Chars of url's Sha256
@@ -109,9 +115,6 @@ while True:
 
                         sys.stdout.write("\t Completed Processing Rss_ID: {} . \n".format(row['rss_id']))
                         logger.info("\t Completed Processing Rss_ID: {} . \n".format(row['rss_id']))
-
-                    new_row = {'rss_id': row['rss_id'], 'rss_url': row['rss_url'], 'md5_hash': file_hash,
-                               'last_changed': str(now), 'change_interval': change_interval, 'epoch_counter': epoch}
 
                 writer.writerow(new_row)
 
