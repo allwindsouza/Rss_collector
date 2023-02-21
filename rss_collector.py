@@ -94,9 +94,6 @@ while True:
                         diff_time = now - last_changed
                         change_interval = str(diff_time).split(".")[0]
 
-                        new_row = {'rss_id': row['rss_id'], 'rss_url': row['rss_url'], 'md5_hash': file_hash,
-                                   'last_changed': str(now), 'change_interval': change_interval, 'epoch_counter': epoch}
-
                         folder_name = hashlib.sha256(row['rss_url'].encode()).hexdigest()[
                                       :5]  # Last 5 Chars of url's Sha256
                         file_name = f"{str(time.time())}.xml"
@@ -112,6 +109,9 @@ while True:
 
                         sys.stdout.write("\t Completed Processing Rss_ID: {} . \n".format(row['rss_id']))
                         logger.info("\t Completed Processing Rss_ID: {} . \n".format(row['rss_id']))
+
+                    new_row = {'rss_id': row['rss_id'], 'rss_url': row['rss_url'], 'md5_hash': file_hash,
+                               'last_changed': str(now), 'change_interval': change_interval, 'epoch_counter': epoch}
 
                 writer.writerow(new_row)
 
