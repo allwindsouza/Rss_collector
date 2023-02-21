@@ -10,18 +10,17 @@ import datetime
 import boto3
 import hashlib
 from pytz import timezone
-
-
+from xml_utils import compare_xml_files
+from utils import get_last_modified_file_data
 
 logging.basicConfig(
-                    filename='logs.log',
-                    format='%(asctime)s %(message)s',
-                    filemode='w'
-                    )
+    filename='logs.log',
+    format='%(asctime)s %(message)s',
+    filemode='w'
+)
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
-
 
 session = boto3.Session(profile_name="s3-access-role")
 s3 = session.client("s3")
@@ -56,7 +55,6 @@ while True:
                 if last_changed != "null":
                     last_changed = datetime.datetime.strptime(row['last_changed'], '%Y-%m-%d %H:%M:%S.%f')
 
-
                 if file_hash == row['md5_hash']:
                     sys.stdout.write("\t Same hash as previous iteration: {}. \n".format(file_hash))
                     logger.info("\t Same hash as previous iteration: {}. \n".format(file_hash))
@@ -65,33 +63,43 @@ while True:
                                'change_interval': row['change_interval'], 'epoch_counter': row['epoch_counter']}
 
                 else:
-                    epoch = int(row['epoch_counter']) + 1
-                    sys.stdout.write("\t Changing hash from {} to {}. \n".format(row['md5_hash'], file_hash))
-                    logger.info("\t Changing hash from {} to {}. \n".format(row['md5_hash'], file_hash))
+                    # Doing further checks:
+                    folder_name = hashlib.sha256(row['rss_url'].encode()).hexdigest()[:5]  # Last 5 Chars of url's Sha256
+                    folder = 'Rss_files_v2/' + f"{folder_name}"
+                    old_data = get_last_modified_file_data(bucket_name=bucket, folder_name=folder)
 
-                    now = datetime.datetime.now()
-                    if last_changed == "null":
-                        last_changed = now
-                    diff_time = now - last_changed
-                    change_interval = str(diff_time).split(".")[0]
+                    if compare_xml_files(old_data, data):
+                        # Same as old xml files, only a few date/time fields have changed.
+                        pass
+                    else:
+                        epoch = int(row['epoch_counter']) + 1
+                        sys.stdout.write("\t Changing hash from {} to {}. \n".format(row['md5_hash'], file_hash))
+                        logger.info("\t Changing hash from {} to {}. \n".format(row['md5_hash'], file_hash))
 
-                    new_row = {'rss_id': row['rss_id'], 'rss_url': row['rss_url'], 'md5_hash': file_hash,
-                               'last_changed': str(now), 'change_interval': change_interval, 'epoch_counter': epoch }
+                        now = datetime.datetime.now()
+                        if last_changed == "null":
+                            last_changed = now
+                        diff_time = now - last_changed
+                        change_interval = str(diff_time).split(".")[0]
 
-                    folder_name = hashlib.sha256(row['rss_url'].encode()).hexdigest()[:5] # Last 5 Chars of url's Sha256
-                    file_name = f"{str(time.time())}.xml"
-                    write_path = 'Rss_files_v2/' + f"{folder_name}/{file_name}"
-                    temp_file_name = "temp_file.txt"
+                        new_row = {'rss_id': row['rss_id'], 'rss_url': row['rss_url'], 'md5_hash': file_hash,
+                                   'last_changed': str(now), 'change_interval': change_interval, 'epoch_counter': epoch}
 
-                    with open(temp_file_name, 'w') as new_file:
-                        new_file.write(data)
-                        sys.stdout.write("\t Writing to file: {}. \n".format(write_path))
+                        folder_name = hashlib.sha256(row['rss_url'].encode()).hexdigest()[
+                                      :5]  # Last 5 Chars of url's Sha256
+                        file_name = f"{str(time.time())}.xml"
+                        write_path = 'Rss_files_v2/' + f"{folder_name}/{file_name}"
+                        temp_file_name = "temp_file.txt"
 
-                    # s3.Bucket(bucket).upload_file(temp_file_name, write_path)
-                    s3.upload_file(Filename=temp_file_name, Bucket=bucket, Key=write_path)
+                        with open(temp_file_name, 'w') as new_file:
+                            new_file.write(data)
+                            sys.stdout.write("\t Writing to file: {}. \n".format(write_path))
 
-                    sys.stdout.write("\t Completed Processing Rss_ID: {} . \n".format(row['rss_id']))
-                    logger.info("\t Completed Processing Rss_ID: {} . \n".format(row['rss_id']))
+                        # s3.Bucket(bucket).upload_file(temp_file_name, write_path)
+                        s3.upload_file(Filename=temp_file_name, Bucket=bucket, Key=write_path)
+
+                        sys.stdout.write("\t Completed Processing Rss_ID: {} . \n".format(row['rss_id']))
+                        logger.info("\t Completed Processing Rss_ID: {} . \n".format(row['rss_id']))
 
                 writer.writerow(new_row)
 
@@ -103,10 +111,9 @@ while True:
                            'change_interval': row['change_interval'], 'epoch_counter': row['epoch_counter']}
                 writer.writerow(new_row)
 
-
     shutil.move(temp_file.name, filename)
     sys.stdout.write("Completed Going through all Rss feeds. \n")
-    time.sleep(300) # Sleep for 5 mins
+    time.sleep(300)  # Sleep for 5 mins
 
 # sudo ssh - i Rss_collector.pem ubuntu@18.183.76.127
 # nohup python3 -u rss_collector.py > cmd.log &
