@@ -21,14 +21,14 @@ def elements_equal(elem1, elem2):
     return True
 
 
-def compare_xml_files(file1, file2):
+def compare_xml_files(data_1, data_2):
     """
     Compare two XML files, ignoring any differences in date or time-related fields.
     """
-
     # Load XML files into ElementTree objects
-    tree1 = ET.parse(file1)
-    tree2 = ET.parse(file2)
+    tree1 = ET.ElementTree(ET.fromstring(data_1))
+    tree2 = ET.ElementTree(ET.fromstring(data_2))
+
 
     # Get root elements of both trees
     root1 = tree1.getroot()
@@ -44,20 +44,20 @@ def compare_xml_files(file1, file2):
                             return False
     return True
 
-# def download_and_write(url, path):
-#     response = requests.get(url)
-#     data = response.text
-#     with open(path, 'w') as file:
-#         file.write(data)
+def download_and_write(url, path):
+    response = requests.get(url)
+    data = response.text
+    with open(path, 'w') as file:
+        file.write(data)
 #
 #
-# file_1 = "/home/allwind/Desktop/CAS/Rss_collector/resources/test_file_1.xml"
-# file_2 = "/home/allwind/Desktop/CAS/Rss_collector/resources/test_file_2.xml"
-#
-# # download_and_write('http://3.220.4.21:3200/rss/3dcf4/1673601222.0933883.xml',
-# #                    '/home/allwind/Desktop/CAS/Rss_collector/resources/test_file_1.xml')
-# # download_and_write('http://3.220.4.21:3200/rss/3dcf4/1673602186.7453291.xml',
-# #                    '/home/allwind/Desktop/CAS/Rss_collector/resources/test_file_2.xml')
-#
+file_1 = "/home/allwind/Desktop/CAS/Rss_collector/resources/test_file_1.xml"
+file_2 = "/home/allwind/Desktop/CAS/Rss_collector/resources/test_file_2.xml"
+
+# download_and_write('http://3.220.4.21:3200/rss/f5055/1673600573.5898323.xml',
+#                    '/home/allwind/Desktop/CAS/Rss_collector/resources/test_file_1.xml')
+# download_and_write('http://3.220.4.21:3200/rss/f5055/1673600948.218719.xml',
+#                    '/home/allwind/Desktop/CAS/Rss_collector/resources/test_file_2.xml')
+
 # cond = compare_xml_files(file_1, file_2)
 # print(cond)

@@ -22,8 +22,14 @@ logging.basicConfig(
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
-session = boto3.Session(profile_name="s3-access-role")
-s3 = session.client("s3")
+# session = boto3.Session(profile_name="s3-access-role")
+# s3 = session.client("s3")
+
+# import creds
+#
+# s3 = boto3.resource('s3', aws_access_key_id=creds.AWS_ACCESS_KEY_ID,
+#                     aws_secret_access_key=creds.AWS_SECRET_ACCESS_KEY,
+#                     aws_session_token=creds.AWS_SESSION_TOKEN)
 
 bucket = 'pub-rss-feed-store'
 
@@ -66,10 +72,12 @@ while True:
                     # Doing further checks:
                     folder_name = hashlib.sha256(row['rss_url'].encode()).hexdigest()[:5]  # Last 5 Chars of url's Sha256
                     folder = 'Rss_files_v2/' + f"{folder_name}"
+                    sys.stdout.write(f"Got name of last file in folder: {folder} \n")
                     old_data = get_last_modified_file_data(bucket_name=bucket, folder_name=folder)
 
+                    sys.stdout.write(f"Received old data. \n")
                     if compare_xml_files(old_data, data):
-                        # Same as old xml files, only a few date/time fields have changed.
+                        sys.stdout.write("Same as old xml files, only a few date/time fields have changed. \n")
                         pass
                     else:
                         epoch = int(row['epoch_counter']) + 1

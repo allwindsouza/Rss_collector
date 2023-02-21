@@ -4,3 +4,4 @@ creds.py
 config.ini
 temp_file.txt
 logs.log
+.creds
