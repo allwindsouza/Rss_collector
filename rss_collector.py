@@ -79,13 +79,8 @@ while True:
                         old_data = get_last_modified_file_data(bucket_name=bucket, folder_name=folder)
 
                         sys.stdout.write(f"\t Received old data. \n")
-
-                        try:
-                            cond = compare_xml_files(old_data, data)
-                        except:
-                            cond = False
-
-                        if cond:
+                        if False:
+                        # if compare_xml_files(old_data, data):
                             sys.stdout.write("\t Same as old xml files, only a few date/time fields have changed. \n")
 
                             new_row = {'rss_id': row['rss_id'], 'rss_url': row['rss_url'],
