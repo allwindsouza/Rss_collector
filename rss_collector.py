@@ -22,14 +22,14 @@ logging.basicConfig(
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
-# session = boto3.Session(profile_name="s3-access-role")
-# s3 = session.client("s3")
+session = boto3.Session(profile_name="s3-access-role")
+s3 = session.client("s3")
 
-import creds
-
-s3 = boto3.resource('s3', aws_access_key_id=creds.AWS_ACCESS_KEY_ID,
-                    aws_secret_access_key=creds.AWS_SECRET_ACCESS_KEY,
-                    aws_session_token=creds.AWS_SESSION_TOKEN)
+# import creds
+#
+# s3 = boto3.resource('s3', aws_access_key_id=creds.AWS_ACCESS_KEY_ID,
+#                     aws_secret_access_key=creds.AWS_SECRET_ACCESS_KEY,
+#                     aws_session_token=creds.AWS_SESSION_TOKEN)
 
 bucket = 'pub-rss-feed-store'
 
