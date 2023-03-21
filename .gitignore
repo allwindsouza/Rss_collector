@@ -5,3 +5,4 @@ config.ini
 temp_file.txt
 logs.log
 .creds
+__pycache__/
