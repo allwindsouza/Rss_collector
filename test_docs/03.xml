@@ -1,0 +1,46 @@
+<rss xmlns:amagi="http://www.amagi.com/rss/namespace" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:media="http://search.yahoo.com/mrss/">
+    <title><![CDATA[UAT: Adventure TV]]></title>
+    <description><![CDATA[Amagi virtual channel distribution for Discovery Adventure TV]]></description>
+    <generator>Generator</generator>
+    <lastBuildDate>2021-03-30T20:41:22.865830Z</lastBuildDate>
+    <language>en</language>
+    <version>1.0</version>
+    <series>
+      <item>
+        <guid>9ed818e4-ef68-4a4e-bbfc-d25728c66201</guid>
+        <sourceId>TBFA</sourceId>
+        <rokuId>d1dc72265f4c52d1bdc7c9d67f670f40</rokuId>
+        <title><![CDATA[Bizarre Foods America]]></title>
+        <description><![CDATA[Andrew Zimmern tastes weird and wonderful foods that are found in the US.]]></description>
+        <genre>documentary,food</genre>
+        <media:keywords xmlns:media="http://search.yahoo.com/mrss/">favorites,comfort food,dining,restaurant,offbeat,american,food,local,road trip,outrageous food,midwestern,travel,documentary</media:keywords>
+        <media:rating xmlns:media="http://search.yahoo.com/mrss/" scheme="urn:v-chip">tv-pg</media:rating>
+        <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" width="1920" height="1080" url="https://static-delivery.sr.roku.com/9ed818e4-ef68-4a4e-bbfc-d25728c66201/images/183949_001_US_S_1_1920X1080.jpg"/>
+        <episodes>
+          <item>
+            <guid>2695a983-2239-4713-9001-48a7dc7dad03</guid>
+            <amagi:externalId xmlns:amagi="http://www.amagi.com/rss/namespace" provider="gracenote" type="tms">EP015254300015</amagi:externalId>
+            <title><![CDATA[Austin]]></title>
+            <description><![CDATA[The food in Austin can get a little weird.]]></description>
+            <episodeNumber>14</episodeNumber>
+            <seasonNumber>1</seasonNumber>
+            <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" width="1844" height="1037" url="https://static-delivery.sr.roku.com/2695a983-2239-4713-9001-48a7dc7dad03/images/183949_009_US_EP_0179612_1920X1080.jpg"/>
+            <media:subTitle xmlns:media="http://search.yahoo.com/mrss/" type="text/vtt" lang="hu" href="https://static-delivery.sr.roku.com/2695a983-2239-4713-9001-48a7dc7dad03/captions/183949_009_US_Adventure_TV_20211118T185843_cc_hu.vtt"/>
+            <dcterms:valid xmlns:dcterms="http://purl.org/dc/terms/">start=2021-03-09T05:00:00Z; end=2022-03-09T05:00:00Z; scheme=W3C-DTF</dcterms:valid>
+            <media:content xmlns:media="http://search.yahoo.com/mrss/" url="s3://ovp-destination-886239521314/2695a983-2239-4713-9001-48a7dc7dad03/mp4/183949_009_US_Adventure_TV_20211118T185843_Stereo_QVBR-9_1920x1080_5495.mp4" duration="2550" medium="video" adBreakPoints="00:09:48.087, 00:16:04.263, 00:24:21.427, 00:30:23.588, 00:36:23.748" fps="29.97"/>
+            <media:rating xmlns:media="http://search.yahoo.com/mrss/" scheme="urn:v-chip">tv-pg</media:rating>
+            <amagi:meta xmlns:amagi="http://www.amagi.com/rss/namespace">
+              <amagi:meta-value name="provider" value="Adventure TV"/>
+              <amagi:meta-value name="providerId" value="adventure_tv"/>
+              <amagi:meta-value name="contentType" value="episode"/>
+              <amagi:meta-value name="sourceId" value="183949_009_US"/>
+              <amagi:meta-value name="businessModel" value="bm5"/>
+              <amagi:meta-list name="countries">
+                <amagi:meta-value value="us"/>
+              </amagi:meta-list>
+            </amagi:meta>
+          </item>
+        </episodes>
+      </item>
+    </series>
+  </rss>

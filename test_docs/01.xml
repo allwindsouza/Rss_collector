@@ -1,0 +1,128 @@
+<rss xmlns:amagi="http://www.amagi.com/rss/namespace" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:media="http://search.yahoo.com/mrss/">
+  <title><![CDATA[UAT: Adventure TV]]></title>
+  <description><![CDATA[Amagi virtual channel distribution for Discovery Adventure TV]]></description>
+  <generator>Generator</generator>
+  <lastBuildDate>2021-03-30T20:41:22.865830Z</lastBuildDate>
+  <language>en</language>
+  <version>1.0</version>
+  <series>
+    <item>
+      <guid>9ed818e4-ef68-4a4e-bbfc-d25728c66201</guid>
+      <sourceId>TBFA</sourceId>
+      <rokuId>d1dc72265f4c52d1bdc7c9d67f670f40</rokuId>
+      <title><![CDATA[Bizarre Foods America]]></title>
+      <description><![CDATA[Andrew Zimmern tastes weird and wonderful foods that are found in the US.]]></description>
+      <genre>documentary,food</genre>
+      <media:keywords xmlns:media="http://search.yahoo.com/mrss/">favorites,comfort food,dining,restaurant,offbeat,american,food,local,road trip,outrageous food,midwestern,travel,documentary</media:keywords>
+      <media:rating xmlns:media="http://search.yahoo.com/mrss/" scheme="urn:v-chip">tv-pg</media:rating>
+      <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" width="1920" height="1080" url="https://static-delivery.sr.roku.com/9ed818e4-ef68-4a4e-bbfc-d25728c66201/images/183949_001_US_S_1_1920X1080.jpg"/>
+      <episodes>
+        <item>
+          <guid>2695a983-2239-4713-9001-48a7dc7dad03</guid>
+          <amagi:externalId xmlns:amagi="http://www.amagi.com/rss/namespace" provider="gracenote" type="tms">EP015254300015</amagi:externalId>
+          <title><![CDATA[Austin]]></title>
+          <description><![CDATA[The food in Austin can get a little weird.]]></description>
+          <episodeNumber>14</episodeNumber>
+          <seasonNumber>1</seasonNumber>
+          <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" width="1844" height="1037" url="https://static-delivery.sr.roku.com/2695a983-2239-4713-9001-48a7dc7dad03/images/183949_009_US_EP_0179612_1920X1080.jpg"/>
+          <media:subTitle xmlns:media="http://search.yahoo.com/mrss/" type="text/vtt" lang="hu" href="https://static-delivery.sr.roku.com/2695a983-2239-4713-9001-48a7dc7dad03/captions/183949_009_US_Adventure_TV_20211118T185843_cc_hu.vtt"/>
+          <dcterms:valid xmlns:dcterms="http://purl.org/dc/terms/">start=2021-03-09T05:00:00Z; end=2022-03-09T05:00:00Z; scheme=W3C-DTF</dcterms:valid>
+          <media:content xmlns:media="http://search.yahoo.com/mrss/" url="s3://ovp-destination-886239521314/2695a983-2239-4713-9001-48a7dc7dad03/mp4/183949_009_US_Adventure_TV_20211118T185843_Stereo_QVBR-9_1920x1080_5495.mp4" duration="2550" medium="video" adBreakPoints="00:09:48.087, 00:16:04.263, 00:24:21.427, 00:30:23.588, 00:36:23.748" fps="29.97"/>
+          <media:rating xmlns:media="http://search.yahoo.com/mrss/" scheme="urn:v-chip">tv-pg</media:rating>
+          <amagi:meta xmlns:amagi="http://www.amagi.com/rss/namespace">
+            <amagi:meta-value name="provider" value="Adventure TV"/>
+            <amagi:meta-value name="providerId" value="adventure_tv"/>
+            <amagi:meta-value name="contentType" value="episode"/>
+            <amagi:meta-value name="sourceId" value="183949_009_US"/>
+            <amagi:meta-value name="businessModel" value="bm5"/>
+            <amagi:meta-list name="countries">
+              <amagi:meta-value value="us"/>
+            </amagi:meta-list>
+          </amagi:meta>
+        </item>
+        <item>
+          <guid>b9eb3984-fa96-4236-9e43-fb8c107ec636</guid>
+          <amagi:externalId xmlns:amagi="http://www.amagi.com/rss/namespace" provider="gracenote" type="tms">EP015254300004</amagi:externalId>
+          <title><![CDATA[Bostons]]></title>
+          <description><![CDATA[A city steeped in American history can also produce new food trends.]]></description>
+          <episodeNumber>4</episodeNumber>
+          <seasonNumber>1</seasonNumber>
+          <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" width="1828" height="1028" url="https://static-delivery.sr.roku.com/b9eb3984-fa96-4236-9e43-fb8c107ec636/images/183949_004_US_EP_0179549_1920X1080.jpg"/>
+          <media:subTitle xmlns:media="http://search.yahoo.com/mrss/" type="text/vtt" lang="en" href="https://static-delivery.sr.roku.com/b9eb3984-fa96-4236-9e43-fb8c107ec636/captions/183949_004_US_AdventureTV_20210318T200625_cc_eng.vtt"/>
+          <dcterms:valid xmlns:dcterms="http://purl.org/dc/terms/">start=2021-03-09T05:00:00Z; end=2022-03-09T05:00:00Z; scheme=W3C-DTF</dcterms:valid>
+          <media:content xmlns:media="http://search.yahoo.com/mrss/" url="s3://ovp-destination-886239521314/b9eb3984-fa96-4236-9e43-fb8c107ec636/mp4/183949_004_US_AdventureTV_20210318T200625_Stereo_QVBR-9_1920x1080_5495.mp4" duration="2551" medium="video" adBreakPoints="00:09:09.048, 00:15:38.237, 00:22:13.432, 00:29:21.593, 00:37:00.785" fps="29.97"/>
+          <media:rating xmlns:media="http://search.yahoo.com/mrss/" scheme="urn:v-chip">tv-pg</media:rating>
+          <amagi:meta xmlns:amagi="http://www.amagi.com/rss/namespace">
+            <amagi:meta-value name="provider" value="Adventure TV"/>
+            <amagi:meta-value name="providerId" value="adventure_tv"/>
+            <amagi:meta-value name="contentType" value="episode"/>
+            <amagi:meta-value name="sourceId" value="183949_004_US"/>
+            <amagi:meta-value name="businessModel" value="bm5"/>
+            <amagi:meta-list name="countries">
+              <amagi:meta-value value="us"/>
+            </amagi:meta-list>
+          </amagi:meta>
+        </item>
+      </episodes>
+    </item>
+    <item>
+      <guid>6a997d88-9eb1-4a76-99f1-6f179999c465</guid>
+      <sourceId>TMVF</sourceId>
+      <rokuId>a3a4dc6b21aa5b0bbf61bd1e0ec06376</rokuId>
+      <title><![CDATA[Man v. Food with Adam Richman]]></title>
+      <description><![CDATA[Adam Richman takes on the country's most legendary eating challenges.]]></description>
+      <genre>adventure,reality,documentary,food</genre>
+      <media:keywords xmlns:media="http://search.yahoo.com/mrss/">adventure,b,ramen,burrito,dining,reality,challenge,cooking,travel,food,extreme,french dip</media:keywords>
+      <media:rating xmlns:media="http://search.yahoo.com/mrss/" scheme="urn:v-chip">tv-g</media:rating>
+      <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" width="1920" height="1080" url="https://static-delivery.sr.roku.com/6a997d88-9eb1-4a76-99f1-6f179999c465/images/171489_014_US_S_1_1920X1080.jpg"/>
+      <episodes>
+        <item>
+          <guid>4cd5b4aa-f3d8-43b2-8779-ec0c2f2cd5e3</guid>
+          <amagi:externalId xmlns:amagi="http://www.amagi.com/rss/namespace" provider="gracenote" type="tms">EP011048120009</amagi:externalId>
+          <title><![CDATA[Chicago]]></title>
+          <description><![CDATA[Adam visits the Windy City to take on three meat-laden sandwiches.]]></description>
+          <episodeNumber>6</episodeNumber>
+          <seasonNumber>1</seasonNumber>
+          <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" width="1866" height="1050" url="https://static-delivery.sr.roku.com/4cd5b4aa-f3d8-43b2-8779-ec0c2f2cd5e3/images/171489_005_US_EP_0164127_1920X1080.jpg"/>
+          <media:subTitle xmlns:media="http://search.yahoo.com/mrss/" type="text/vtt" lang="en" href="https://static-delivery.sr.roku.com/4cd5b4aa-f3d8-43b2-8779-ec0c2f2cd5e3/captions/171489_005_US_AdventureTV_20210318T163946_cc_eng.vtt"/>
+          <dcterms:valid xmlns:dcterms="http://purl.org/dc/terms/">start=2021-03-09T05:00:00Z; end=2022-03-09T05:00:00Z; scheme=W3C-DTF</dcterms:valid>
+          <media:content xmlns:media="http://search.yahoo.com/mrss/" url="s3://ovp-destination-886239521314/4cd5b4aa-f3d8-43b2-8779-ec0c2f2cd5e3/mp4/171489_005_US_AdventureTV_20210318T163946_Stereo_QVBR-9_1920x1080_5495.mp4" duration="1290" medium="video" adBreakPoints="00:07:32.085, 00:12:13.299, 00:18:32.478" fps="29.97"/>
+          <media:rating xmlns:media="http://search.yahoo.com/mrss/" scheme="urn:v-chip">tv-g</media:rating>
+          <amagi:meta xmlns:amagi="http://www.amagi.com/rss/namespace">
+            <amagi:meta-value name="provider" value="Adventure TV"/>
+            <amagi:meta-value name="providerId" value="adventure_tv"/>
+            <amagi:meta-value name="contentType" value="episode"/>
+            <amagi:meta-value name="sourceId" value="171489_005_US"/>
+            <amagi:meta-value name="businessModel" value="bm5"/>
+            <amagi:meta-list name="countries">
+              <amagi:meta-value value="us"/>
+            </amagi:meta-list>
+          </amagi:meta>
+        </item>
+        <item>
+          <guid>aa2db2f1-b8ef-42c8-a7fc-0ff577de749f</guid>
+          <amagi:externalId xmlns:amagi="http://www.amagi.com/rss/namespace" provider="gracenote" type="tms">EP011048120001</amagi:externalId>
+          <title><![CDATA[Amarillo]]></title>
+          <description><![CDATA[Adam heads to Amarillo, TX, to take on a 72-ounce steak dinner challenge.]]></description>
+          <episodeNumber>1</episodeNumber>
+          <seasonNumber>1</seasonNumber>
+          <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" width="1871" height="1052" url="https://static-delivery.sr.roku.com/aa2db2f1-b8ef-42c8-a7fc-0ff577de749f/images/171489_004_US_EP_0182835_1920X1080.jpg"/>
+          <media:subTitle xmlns:media="http://search.yahoo.com/mrss/" type="text/vtt" lang="en" href="https://static-delivery.sr.roku.com/aa2db2f1-b8ef-42c8-a7fc-0ff577de749f/captions/171489_004_US_AdventureTV_20210318T163531_cc_eng.vtt"/>
+          <dcterms:valid xmlns:dcterms="http://purl.org/dc/terms/">start=2021-03-09T05:00:00Z; end=2022-03-09T05:00:00Z; scheme=W3C-DTF</dcterms:valid>
+          <media:content xmlns:media="http://search.yahoo.com/mrss/" url="s3://ovp-destination-886239521314/aa2db2f1-b8ef-42c8-a7fc-0ff577de749f/mp4/171489_004_US_AdventureTV_20210318T163531_Stereo_QVBR-9_1920x1080_5495.mp4" duration="1291" medium="video" adBreakPoints="00:07:53.106, 00:12:34.320, 00:18:16.529" fps="29.97"/>
+          <media:rating xmlns:media="http://search.yahoo.com/mrss/" scheme="urn:v-chip">tv-g</media:rating>
+          <amagi:meta xmlns:amagi="http://www.amagi.com/rss/namespace">
+            <amagi:meta-value name="provider" value="Adventure TV"/>
+            <amagi:meta-value name="providerId" value="adventure_tv"/>
+            <amagi:meta-value name="contentType" value="episode"/>
+            <amagi:meta-value name="sourceId" value="171489_004_US"/>
+            <amagi:meta-value name="businessModel" value="bm5"/>
+            <amagi:meta-list name="countries">
+              <amagi:meta-value value="us"/>
+            </amagi:meta-list>
+          </amagi:meta>
+        </item>
+      </episodes>
+    </item>
+  </series>
+</rss>
