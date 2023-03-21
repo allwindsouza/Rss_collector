@@ -57,7 +57,7 @@ def download_and_write(url, path):
     with open(path, 'w') as file:
         file.write(data)
 
-download_and_write('http://3.220.4.21:3200/rss/test/e67004cc-1.xml', '/home/allwind/Desktop/CAS/scratch/small_inp.xml')
+# download_and_write('http://3.220.4.21:3200/rss/test/e67004cc-1.xml', '/home/allwind/Desktop/CAS/scratch/small_inp.xml')
 # #
 # #
 # file_1 = "/home/allwind/Desktop/CAS/Rss_collector/resources/test_file_1.xml"
